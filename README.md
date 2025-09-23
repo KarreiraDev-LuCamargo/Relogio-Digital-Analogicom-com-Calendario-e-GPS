@@ -1,6 +1,8 @@
+<<<<<<< HEAD
 # Relógio Digital & Analógico com Calendário e GPS
 
-Relógio Digital & Analógico em HTML, CSS e JS — com calendário, GPS, tema Dark/Light e alternância de modos.
+=======
+## Relógio Digital & Analógico em HTML, CSS e JS — com calendário, GPS, tema Dark/Light e alternância de modos.
 
 <p align="center">
   <img src="logo.png" alt="KarreiraDev Frontend - Luciano Camargo" width="200"><br>
