@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Relógio Digital & Analógico | KarreiraDev Frontend</title>
+
+  <!-- favicon / logo -->
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <!-- estilos -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Leaflet css -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="KarreiraDev - Luciano Camargo" class="logo" />
+    <h1>Relógio Digital &amp; Analógico</h1>
+  </header>
+
+  <main>
+    <!-- Digital -->
+    <div id="digital-clock" class="clock" aria-live="polite">00:00:00</div>
+
+    <!-- Analógico (inicio oculto) -->
+    <div id="analog-clock" class="analog-clock" aria-hidden="true" style="display:none;">
+      <div class="hand hour" id="hour"></div>
+      <div class="hand minute" id="minute"></div>
+      <div class="hand second" id="second"></div>
+    </div>
+
+    <!-- Calendário -->
+    <div id="date" class="date" aria-live="polite">Carregando data...</div>
+
+    <!-- Localização -->
+    <div id="location" class="location" aria-live="polite">Buscando localização...</div>
+
+    <!-- Map wrapper (inicia oculto) -->
+    <div id="map-wrap" class="hidden" aria-hidden="true">
+      <div id="map" role="application" aria-label="Mapa com sua localização"></div>
+      <div class="map-controls">
+        <button id="btn-export" class="btn-export">Exportar imagem (PNG)</button>
+        <a id="link-download" style="display:none;"></a>
+      </div>
+    </div>
+
+    <!-- botones -->
+    <div class="btn-group">
+      <button id="theme-toggle" class="theme-btn" aria-label="Alternar tema"><i class="fas fa-sun"></i></button>
+      <button id="mode-toggle" class="mode-btn" aria-label="Alternar relógio"><i class="fas fa-clock"></i> <span>Analógico</span></button>
+      <button id="map-toggle" class="map-toggle-btn" aria-pressed="false" aria-label="Mostrar mapa"><i class="fas fa-map-marker-alt"></i> <span>Mapa</span></button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por <strong>Luciano Camargo – KarreiraDev Frontend</strong></p>
+  </footer>
+
+  <!-- libs -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- scripts locais -->
+  <script src="maps.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
