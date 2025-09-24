@@ -1,0 +1,115 @@
+/* RESET */
+* { box-sizing: border-box; margin:0; padding:0; }
+html { font-family: "Roboto", sans-serif; font-size:16px; }
+
+/* BODY / LAYOUT */
+body {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  background: linear-gradient(180deg,#f2f4f7,#e9eef3);
+  color:#222;
+  padding:28px 16px 40px;
+  transition:background .35s, color .25s;
+}
+
+/* HEADER */
+header { text-align:center; margin-bottom:18px; width:100%; }
+.logo { display:block; margin:0 auto 8px; max-width:150px; height:auto; }
+h1 { font-size:1.6rem; font-weight:700; color:#1f2937; }
+
+/* MAIN */
+main { width:100%; max-width:920px; display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; }
+
+/* DIGITAL CLOCK */
+.clock {
+  font-weight:700;
+  font-size:3.2rem;
+  letter-spacing:4px;
+  color:#00bcd4;
+  padding:8px 14px;
+  border-radius:12px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 10px 30px rgba(2,8,23,0.06);
+  transition: color .25s, text-shadow .25s, transform .15s;
+}
+.clock:active{ transform:scale(.995); }
+
+/* ANALOG CLOCK */
+.analog-clock { width:200px; height:200px; border-radius:50%; border:6px solid #333; background:radial-gradient(circle,#fff,#e6e6e6); display:flex; align-items:center; justify-content:center; position:relative; }
+.analog-clock::after{ content:""; position:absolute; width:12px; height:12px; background:#333; border-radius:50%; z-index:6; }
+.hand{ position:absolute; bottom:50%; left:50%; transform-origin:50% 100%; }
+.hour{ width:6px; height:50px; background:#333; border-radius:4px; z-index:4; }
+.minute{ width:4px; height:70px; background:#666; border-radius:4px; z-index:3; }
+.second{ width:2px; height:90px; background:#e53935; border-radius:2px; z-index:2; }
+
+/* DATE CARD */
+.date {
+  width:calc(100% - 40px); max-width:560px;
+  padding:12px 18px; border-radius:14px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,248,249,0.9));
+  box-shadow:0 14px 40px rgba(2,8,23,0.06);
+  font-size:1.02rem; color:#334155;
+}
+
+/* LOCATION */
+.location {
+  width:calc(100% - 40px); max-width:560px;
+  padding:8px 12px; font-size:0.98rem; color:#55606a;
+}
+
+/* MAP WRAP + MAP */
+#map-wrap.hidden { display:none; }
+#map-wrap { width:100%; max-width:720px; border-radius:10px; overflow:hidden; box-shadow:0 14px 40px rgba(2,8,23,0.06); background:#fff; }
+#map { width:100%; height:320px; min-height:220px; }
+
+/* MAP CONTROLS */
+.map-controls{ display:flex; justify-content:center; gap:10px; padding:10px; background:rgba(0,0,0,0.03); }
+.btn-export { padding:8px 12px; border-radius:8px; background:linear-gradient(145deg,#00bcd4,#00a1b6); color:#fff; border:none; cursor:pointer; font-weight:600; box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+.btn-export:hover{ transform:translateY(-3px); }
+
+/* BUTTON GROUP (theme/mode/map) */
+.btn-group { display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:6px; }
+.theme-btn, .mode-btn, .map-toggle-btn {
+  border: none; cursor:pointer; padding:10px 14px; border-radius:12px; background:#fff; display:inline-flex; align-items:center; gap:8px; box-shadow:0 8px 22px rgba(2,8,23,0.06);
+  transition: transform .18s, box-shadow .18s;
+}
+.theme-btn { width:56px; height:56px; border-radius:999px; font-size:1.2rem; justify-content:center; }
+.mode-btn { font-weight:700; padding:10px 16px; }
+.map-toggle-btn { padding:10px 12px; }
+
+.theme-btn:focus, .mode-btn:focus, .map-toggle-btn:focus { outline:2px solid rgba(0,188,212,0.22); outline-offset:2px; }
+
+/* Hover */
+.theme-btn:hover, .mode-btn:hover, .map-toggle-btn:hover { transform:translateY(-4px); box-shadow:0 14px 36px rgba(2,8,23,0.08); }
+
+/* FOOTER */
+footer { margin-top:18px; color:#6b7280; font-size:0.92rem; }
+
+/* DARK MODE */
+body.dark {
+  background: linear-gradient(180deg,#0f1724,#08090b); color:#e6eef6;
+}
+body.dark .clock { color:#5eead4; text-shadow:0 0 12px rgba(94,234,212,0.18); }
+body.dark .date { background:linear-gradient(180deg,#0f1724,#071226); box-shadow:0 14px 40px rgba(0,0,0,0.6); color:#cfe8f2; }
+body.dark #map-wrap{ background:#0b0f14; }
+body.dark .theme-btn, body.dark .mode-btn, body.dark .map-toggle-btn { background:#0b0f14; color:#e6eef6; box-shadow:0 8px 22px rgba(0,0,0,0.6); }
+
+/* RESPONSIVIDADE */
+@media (max-width:700px){
+  .clock { font-size:2.6rem; }
+  #map { height:260px; }
+  .date { font-size:0.98rem; padding:10px 14px;}
+}
+@media (max-width:420px) {
+  .clock { font-size:2.2rem; letter-spacing:3px; padding:6px 10px; }
+  .logo{ max-width:120px; }
+  .analog-clock{ width:160px; height:160px; }
+  #map{ height:200px; }
+}
+@media (max-width:320px) {
+  .clock { font-size:1.8rem; letter-spacing:2px; }
+  .analog-clock{ width:140px; height:140px; }
+}
